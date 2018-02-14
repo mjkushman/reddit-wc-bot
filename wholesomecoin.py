@@ -10,9 +10,9 @@ conn = sqlite3.connect('wholesomeCoin.db')
 c = conn.cursor()
 
 
-SEARCHQ = 'bot' #must be lowercase
+SEARCHQ = 'you' #must be lowercase
 REPLY_TEXT= '\nHere\'s +1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: {}.\n\nBleep bloop. If I did something wrong, please message my developer.'
-SUBSTORUN = 5
+SUBSTORUN = 7
 DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\nBleep bloop. If I did something wrong, please message my developer. '
 coinsGiven = 0 #keeps track of how many coins given out per script run
 coinUp = 1 #how many coins a user should get
@@ -42,37 +42,36 @@ def createTable():
 		username TEXT NOT NULL, 
 		PRIMARY KEY(username))
 		''')
-	c.execute('''CREATE TABLE IF NOT EXISTS wholesome_comments(
-		comment_id TEXT NOT NULL,
-		PRIMARY KEY(comment_id))
-		''')
-	
-#	c.execute('''CREATE TABLE IF NOT EXISTS wholesome_score( 
-#		username TEXT NOT NULL, 
-#		score REAL,
-#		PRIMARY KEY(username))
-#		''')
 
-def coiningTracker(redditObject):
+def coiningTracker(redditObject, award):
 	#record all coining actions in the main table
 	c.execute('''INSERT INTO wholesome_coining 
 		(comment_id, giver_username, parent_comment_id, receiver_username, award) 
-		VALUES (?,?,?,?,?)''', (redditObject.id, redditObject.author.name, redditObject.parent().id, redditObject.parent().author.name,coinUp,))
+		VALUES (?,?,?,?,?)''', (redditObject.id, redditObject.author.name, redditObject.parent().id, redditObject.parent().author.name,award,))
 	conn.commit()
 
 def wholesomeUserTracker(redditObject):
+	print('executing wholesomeUserTracker')
+	print(redditObject.parent().author.name)
 	c.execute('''INSERT INTO wholesome_users 
 		(username)
-		VALUES (?)''', (redditObject.author,))
+		VALUES (?)''', (redditObject.parent().author.name,))
+	conn.commit()
+
+def wholesomeCommentTracker(redditObject):
+	c.execute('''INSERT INTO wholesome_comments 
+		(username)
+		VALUES (?)''', (redditObject.author.name,))
 	conn.commit()
 
 
 def createView():
-	c.execute('''CREATE VIEW IF NOT EXISTS wholesome_score AS SELECT
-		wholesome_users.username AS username, 
-		wholesome_coining.award AS total_coins
-		FROM wholesome_users, wholesome_coining
-		WHERE wholesome_users.username = wholesome_coining.receiver_username''')
+	c.execute('''CREATE VIEW IF NOT EXISTS wholesome_score AS 
+		SELECT wholesome_users.username username, SUM(wholesome_coining.award) total_coins
+		FROM wholesome_users INNER JOIN wholesome_coining
+		ON wholesome_users.username = wholesome_coining.receiver_username
+		GROUP BY wholesome_users.username
+		''')
 
 def forestExplorer(redditObject):
 	commentAuthor = redditObject.author #define the object's author
@@ -87,49 +86,49 @@ def qFinder(copy, author, parent, redditObject):
 	#print('qFinder:', copy, author, parent, redditObject)
 	copy = copy.translate(str.maketrans('','',string.punctuation)) #removes punctuation
 	if SEARCHQ in copy.split():
-		if author != parent:			 #Will GIVE coins
+		if author == parent: 				#Will TAKE coins if the use tried to reward themselves
 			c.execute('SELECT comment_id FROM wholesome_coining')
 			coinData = c.fetchall() #coinData is a list of touples
 			commentIdList = [t[0] for t in coinData]
 			if redditObject.id not in commentIdList:
-				coinScore = int(coinGiver(parent, redditObject))
+				coinScore = coinPenalty(redditObject)
+				print(DENY_TEXT)
+				#sendReply(redditObject, parent, coinScore)
+				#TODO: do NOT give a coin and punish the user!
+				#TODO: add functionality that punishes users for giving themselves wholesomecoins
+		elif author != parent and parent != None:			 #Will GIVE coins
+			c.execute('SELECT comment_id FROM wholesome_coining')
+			coinData = c.fetchall() #coinData is a list of touples
+			commentIdList = [t[0] for t in coinData]
+			if redditObject.id not in commentIdList:
+				coinScore = coinGiver(redditObject)
 				print(REPLY_TEXT.format(parent, coinScore))
 			#sendReply(redditObject, parent, coinScore)
-		else: 								#Will TAKE coins
-			coinScore = int(coinPenalty(parent, redditObject))
-			print(DENY_TEXT)
-			#sendReply(redditObject, parent, coinScore)
-			#TODO: do NOT give a coin and punish the user!
-			#TODO: add functionality that punishes users for giving themselves wholesomecoins
+		
 
 
-def coinGiver(author, redditObject):
+def coinGiver(redditObject):
 	print('STARTING coinGiver')
 	global coinsGiven #TODO: remove for production
-	author = str(author)
+	parent = redditObject.parent().author.name
 	coinsGiven += 1 #TODO: remove for prod
-
 #1- record the coining action in coining table
-	coiningTracker(redditObject)	
-		
-#2 - record the coinned comment
-
-#3 - IF the author is not already tracked in users table, add to table
+	coiningTracker(redditObject, coinUp)
+#2 - IF the parent is not already tracked in users table, add to table
 	c.execute('SELECT username FROM wholesome_users')
 	coinData = c.fetchall() #coinData is a list of touples
 	authorsList = [t[0] for t in coinData]
 	coinScore = 0
-	if author not in authorsList:
-		c.execute("INSERT INTO wholesome_users (username) VALUES (?)", (author,))
+	print(parent)
+	print(authorsList)
+	if parent not in authorsList:
+		wholesomeUserTracker(redditObject)
+		#c.execute("INSERT INTO wholesome_users (username) VALUES (?)", (author,))
 		#c.execute("INSERT INTO wholesome_coins (username, total_coins) VALUES (?,?)", (author, coinUp,))
 		#c.execute("INSERT INTO wholesome_coining (username, total_coins) VALUES (?,?)", (author, coinUp,))
-		conn.commit()
+		#conn.commit()
 		coinScore = coinUp
 	else: #actually I don't need this else statement
-#		print('author found. increasig coinage.')
-#		print(authorsList)
-#		print(authorsList.index(author))
-#		print(coinData[authorsList.index(author)][1])
 
 #		coinScore = round(coinData[authorsList.index(author)][1] +coinUp) #new coin score of author
 		#Updates the coin score to be current coins + 1 / coinScore
@@ -145,36 +144,39 @@ def sendReply(redditObject, parent, coinScore):
 	time.sleep(10)
 
 
-def coinPenalty(author, redditObject):
+def coinPenalty(redditObject):
 	print('STARTING coinPenalty')
 	global coinsGiven #TODO: remove for production
-	author = str(author)
-	#c.execute('SELECT username, coins FROM wholesome_coins')
+	coinScore = 0
+#1 - IF the parent is not already tracked in users table, add to table
+	parent = redditObject.parent().author.name
+	c.execute('SELECT username FROM wholesome_users')
 	coinData = c.fetchall() #coinData is a list of touples
 	authorsList = [t[0] for t in coinData]
-	coinScore = 0
-	
-	if author not in authorsList:
-		#c.execute("INSERT INTO wholesome_coins (username, coins) VALUES (?,?)", (author, coinUp,))
-		#conn.commit()
+	if parent not in authorsList:
+		wholesomeUserTracker(redditObject)
 		coinScore = 0
-	else:
-#		print('author found. increasig coinage.')
-#		print(authorsList)
-#		print(authorsList.index(author))
-#		print(coinData[authorsList.index(author)][1])
 
-		coinScore = round(coinData[authorsList.index(author)][1] / 2) #new coin score of author
-		#Updates the coin score to be current coins + 1 / coinScore
-		#c.execute("UPDATE wholesome_coins SET coins = ? WHERE username = ?", (coinScore, author,))
-		#conn.commit()
-	return coinScore
+#2- record the coining action in coining table. In this case, 0 coins were awarded.
+#2.1 define the penalty
+
+	c.execute('SELECT username, total_coins FROM wholesome_score WHERE username = (?)', (parent,))
+	coinData = c.fetchall()
+	
+	if len(coinData) > 0:
+		penalty = ((coinData[0][1])/2)*-1
+	else:
+		penalty = 0
+	print('PENALTY:', penalty)
+	coiningTracker(redditObject, penalty)
+
+	
+	return
 
 createTable()
 createView()
 
 #reddit instance
-#pw = input('bot password: ') TODO: uncomment for password input
 
 print('Getting reddit instance...')
 reddit = praw.Reddit(
@@ -187,7 +189,7 @@ reddit = praw.Reddit(
 print('..done getting reddit instance!')
 
 print('Getting subreddit object...')
-subreddit = reddit.subreddit('testingground4bots')
+subreddit = reddit.subreddit('AskReddit')
 print('..done getting subreddit object!')
 #subreddit = reddit.subreddit('testingground4bots').hot(limit=15)
 #for submission in subreddit.stream.submissions():
@@ -196,10 +198,10 @@ subCount = 0
 #for submission in subreddit.stream.submissions(): #TODO: use this version for stream of new
 for subIndex, submission in enumerate(subreddit.hot(limit=SUBSTORUN)):
 	commentCount = 0
-	print('===starting "{}"==='.format(submission.title))
+	print('===starting "{}" ==='.format(submission.title))
 #	print('New submission found:', submission.title)
 #	print(submission.author)
-	submission.comments.replace_more(limit=None) #removes MoreComments objects
+	submission.comments.replace_more(limit=5) #removes MoreComments objects
 
 #	Need to turn this into a while loop, and loop while there are replies to be looped on
 
