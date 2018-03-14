@@ -11,23 +11,17 @@ c = conn.cursor()
 
 
 SEARCHQ = 'you' #must be lowercase
-REPLY_TEXT= '\nHere\'s +1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: {}.\n\nBleep bloop. If I did something wrong, please message my developer.'
-SUBSTORUN = 7
-DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\nBleep bloop. If I did something wrong, please message my developer. '
+REPLY_TEXT= '\nHere\'s +1 WholesomeCoin for u/{}!\n\nCurrent wholesome coinage: **{}**.\n\n&nbsp;\n\n*****\n\n^Bleep ^bloop. ^If ^I ^did ^something ^wrong, ^please ^send ^me ^a ^message.'
+SUBSTORUN = 1
+SUBREDDITS_WHITELIST = ['AskReddit','testingground4bots','todayilearned']
+DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\n&nbsp;\n\n*****\n\n^Bleep ^bloop. ^If ^I ^did ^something ^wrong, ^please ^send ^me ^a ^message.'
 coinsGiven = 0 #keeps track of how many coins given out per script run
 coinUp = 1 #how many coins a user should get
 
 
-'''#TODO: Prevent multiple coins from being given out for the same !wholesomecoin comment
-	Add a column to the table that records the comment ID. 
-	Each row in the table should be a time a coin was given out, comment ID being unique ident
-	If the comment ID already exists, that means a coin was already given out for that comment.
-
-
-'''
 #Creates the table to keep track of everyone's coins
 #Create the following tables:
-#wholesome_coining; wholesome_users; coinned_comments; wholesome_score
+#wholesome_coining; wholesome_users; wholesome_score
 def createTable():
 	c.execute('''CREATE TABLE IF NOT EXISTS wholesome_coining(
 		comment_id TEXT NOT NULL, 
@@ -43,25 +37,17 @@ def createTable():
 		PRIMARY KEY(username))
 		''')
 
-def coiningTracker(redditObject, award):
-	#record all coining actions in the main table
+def coiningTracker(redditObject, award): #record all coining actions in the main table
 	c.execute('''INSERT INTO wholesome_coining 
 		(comment_id, giver_username, parent_comment_id, receiver_username, award) 
 		VALUES (?,?,?,?,?)''', (redditObject.id, redditObject.author.name, redditObject.parent().id, redditObject.parent().author.name,award,))
 	conn.commit()
 
-def wholesomeUserTracker(redditObject):
-	print('executing wholesomeUserTracker')
-	print(redditObject.parent().author.name)
+def wholesomeUserTracker(redditObject): #just adds users to the user table
+	#print('executing wholesomeUserTracker')
 	c.execute('''INSERT INTO wholesome_users 
 		(username)
 		VALUES (?)''', (redditObject.parent().author.name,))
-	conn.commit()
-
-def wholesomeCommentTracker(redditObject):
-	c.execute('''INSERT INTO wholesome_comments 
-		(username)
-		VALUES (?)''', (redditObject.author.name,))
 	conn.commit()
 
 
@@ -73,42 +59,64 @@ def createView():
 		GROUP BY wholesome_users.username
 		''')
 
-def forestExplorer(redditObject):
-	commentAuthor = redditObject.author #define the object's author
-	parentComment = redditObject.parent() #define the object's parent
-	parentCommentAuthor = parentComment.author #define the object's parent's author
-	bodyCopy = redditObject.body.lower() #make text lowercase
-	qFinder(bodyCopy, commentAuthor, parentCommentAuthor, redditObject)
-	return
+#def forestExplorer(redditObject):
+#	commentAuthor = redditObject.author #define the object's author
+#	parentComment = redditObject.parent() #define the object's parent
+#	parentCommentAuthor = parentComment.author #define the object's parent's author
+#	bodyCopy = redditObject.body.lower() #make text lowercase
+#	qFinder(redditObject)
+#	return
 
-def qFinder(copy, author, parent, redditObject):
-	print('STARTING qFinder')
-	#print('qFinder:', copy, author, parent, redditObject)
-	copy = copy.translate(str.maketrans('','',string.punctuation)) #removes punctuation
+def isObjectValid(redditObject):
+	if redditObject.author == None:
+		#print('False because redditObject.author == None')
+		return False
+	if redditObject.parent().author == None:
+		#print('False because redditObject.parent().author == None')
+		return False
+	if redditObject.body == '[deleted]':
+		#print('False because redditObject.body == [deleted]')
+		return False
+	else:
+		return True
+
+def qFinder(redditObject):
+	#print('STARTING qFinder')
+	global repliesSent
+	copy = redditObject.body.lower().translate(str.maketrans('','',string.punctuation)) #removes punctuation
 	if SEARCHQ in copy.split():
-		if author == parent: 				#Will TAKE coins if the use tried to reward themselves
-			c.execute('SELECT comment_id FROM wholesome_coining')
-			coinData = c.fetchall() #coinData is a list of touples
-			commentIdList = [t[0] for t in coinData]
-			if redditObject.id not in commentIdList:
-				coinScore = coinPenalty(redditObject)
-				print(DENY_TEXT)
-				#sendReply(redditObject, parent, coinScore)
-				#TODO: do NOT give a coin and punish the user!
-				#TODO: add functionality that punishes users for giving themselves wholesomecoins
-		elif author != parent and parent != None:			 #Will GIVE coins
-			c.execute('SELECT comment_id FROM wholesome_coining')
-			coinData = c.fetchall() #coinData is a list of touples
-			commentIdList = [t[0] for t in coinData]
-			if redditObject.id not in commentIdList:
-				coinScore = coinGiver(redditObject)
-				print(REPLY_TEXT.format(parent, coinScore))
+		#print('object:')
+		#pprint.pprint(vars(redditObject))
+		#print('parent:')
+		#pprint.pprint(vars(redditObject.parent()))
+		#print('valid test:', isObjectValid(redditObject))
+
+		if redditObject.author == redditObject.parent().author: #Will TAKE coins if the use tried to reward themselves
+			coinScore = coinPenalty(redditObject)
+			print(DENY_TEXT)
+			print('Pretend Reply Sent! (- coins)')
 			#sendReply(redditObject, parent, coinScore)
+			repliesSent += 1
+		elif redditObject.author != redditObject.parent().author and isObjectValid(redditObject) == True:			 #Will GIVE coins
+			c.execute('SELECT comment_id FROM wholesome_coining')
+			coinData = c.fetchall() #coinData is a list of touples
+			commentIdList = [t[0] for t in coinData]
+			if redditObject.id not in commentIdList:
+				#pprint.pprint(vars(redditObject))
+				
+				#pprint.pprint(vars(redditObject.parent()))
+				coinScore = coinGiver(redditObject)
+				#print(REPLY_TEXT.format(redditObject.parent().name, coinScore))
+				
+				sendReply(redditObject, coinScore)
+	elif SEARCHQ not in copy.split():
+		pass
+	return
 		
 
 
 def coinGiver(redditObject):
-	print('STARTING coinGiver')
+	#print('STARTING coinGiver')
 	global coinsGiven #TODO: remove for production
 	parent = redditObject.parent().author.name
 	coinsGiven += 1 #TODO: remove for prod
@@ -119,33 +127,26 @@ def coinGiver(redditObject):
 	coinData = c.fetchall() #coinData is a list of touples
 	authorsList = [t[0] for t in coinData]
 	coinScore = 0
-	print(parent)
-	print(authorsList)
 	if parent not in authorsList:
 		wholesomeUserTracker(redditObject)
-		#c.execute("INSERT INTO wholesome_users (username) VALUES (?)", (author,))
-		#c.execute("INSERT INTO wholesome_coins (username, total_coins) VALUES (?,?)", (author, coinUp,))
-		#c.execute("INSERT INTO wholesome_coining (username, total_coins) VALUES (?,?)", (author, coinUp,))
-		#conn.commit()
-		coinScore = coinUp
-	else: #actually I don't need this else statement
-
-#		coinScore = round(coinData[authorsList.index(author)][1] +coinUp) #new coin score of author
-		#Updates the coin score to be current coins + 1 / coinScore
-		#c.execute("UPDATE wholesome_coins SET coins = ? WHERE username = ?", (coinScore, author,))
-		#conn.commit()
-		pass
+		#coinScore = coinUp
+	c.execute('SELECT total_coins FROM wholesome_score WHERE username=(?)',(parent,))
+	coinScore = c.fetchone()
+	coinScore = round(coinScore[0])
 	return coinScore
-			
-		
-def sendReply(redditObject, parent, coinScore):
-	#TODO set up function that replies to the message
-	redditObject.reply(REPLY_TEXT.format(parent, coinScore))
-	time.sleep(10)
 
+def sendReply(redditObject, coinScore):
+	#print('starting SENDREPLY')
+	global repliesSent
+	if repliesSent < 5:
+		#Uncommet the next line to enable replies !!GOES LIVE!!
+		#redditObject.reply(REPLY_TEXT.format(redditObject.parent().name, coinScore))
+		print('Pretend Reply Sent! (+ coin)')
+		repliesSent += 1
+		time.sleep(3)
 
 def coinPenalty(redditObject):
-	print('STARTING coinPenalty')
+	#print('STARTING coinPenalty')
 	global coinsGiven #TODO: remove for production
 	coinScore = 0
 #1 - IF the parent is not already tracked in users table, add to table
@@ -173,6 +174,8 @@ def coinPenalty(redditObject):
 	
 	return
 
+#=============POGRAM START=========
+
 createTable()
 createView()
 
@@ -189,40 +192,35 @@ reddit = praw.Reddit(
 print('..done getting reddit instance!')
 
 print('Getting subreddit object...')
-subreddit = reddit.subreddit('AskReddit')
+#subreddit = reddit.subreddit('AskReddit')
 print('..done getting subreddit object!')
 #subreddit = reddit.subreddit('testingground4bots').hot(limit=15)
 #for submission in subreddit.stream.submissions():
 
 subCount = 0
-#for submission in subreddit.stream.submissions(): #TODO: use this version for stream of new
-for subIndex, submission in enumerate(subreddit.hot(limit=SUBSTORUN)):
-	commentCount = 0
-	print('===starting "{}" ==='.format(submission.title))
-#	print('New submission found:', submission.title)
-#	print(submission.author)
-	submission.comments.replace_more(limit=5) #removes MoreComments objects
+for subreddit in SUBREDDITS_WHITELIST[:]:
+	subreddit = reddit.subreddit(subreddit)
+	#for submission in subreddit.stream.submissions(): #TODO: use this version for stream of new
+	for subIndex, submission in enumerate(subreddit.hot(limit=SUBSTORUN)):
+		repliesSent = 0 #track replies per submission
+		print('===starting "{}" ==='.format(submission.title))
 
-#	Need to turn this into a while loop, and loop while there are replies to be looped on
+		submission.comments.replace_more(limit=5) #removes MoreComments objects
 
-	for indexx, comment in enumerate(submission.comments.list()):
-		#print()
-		#print('{}C  -- Found a comment in {} --'.format((indexx+1), submission.title))
-		forestExplorer(comment)
-		print(comment)
-		print(comment.author)
-		#pprint.pprint(vars(comment)) #FOR DEBUG
-		commentCount += 1	
+	#	Need to turn this into a while loop, and loop while there are replies to be looped on
 
-#	print('Completed submission: {}'.format(submission.title))
-#	print('Ran on {} comments to {}'.format(commentCount, submission.author))	
-	subCount = subIndex +1	
+		for indexx, redditObject in enumerate(submission.comments.list()):
+			qFinder(redditObject)	
+			#pprint.pprint(vars(comment)) #FOR DEBUG
+			
+		print('pretend replies sent', repliesSent)
+		subCount = subIndex +1	
 
+	print('Scanned the following submissions:\n')
 
-print('Scanned the following submissions:\n')
-for submission in subreddit.hot(limit=SUBSTORUN):
-	print(submission.title)
-print('\n!!Completed {} submissions and gave out {} WholesomeCoins!!'.format(subCount, coinsGiven))
+	for index, submission in enumerate(subreddit.hot(limit=SUBSTORUN)):
+		print(index+1, submission.title)
+	print('\n!!Completed {} submissions in {} and gave out {} WholesomeCoins!!'.format(subCount, subreddit, coinsGiven))
 
 
 
