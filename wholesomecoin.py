@@ -1,5 +1,6 @@
 #! reddit wholesome coin bot. Monitors a subreddit 
-#and hands out Wholesome Coin #when someone says !wholesomecoin
+#and hands out Wholesome Coin #when someone summons the bot explicitly.
+#Currently very much a work in progress. Expect messy code and notes"
 
 
 import praw, pprint, datetime, sqlite3, string, time, sys
