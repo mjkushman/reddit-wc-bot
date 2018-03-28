@@ -20,7 +20,7 @@ DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\
 coinsGiven = 0 #keeps track of how many coins given out per script run
 coinUp = 1 #how many coins a user should get
 lastPostTime = int(time.time())
-POSTINTERVAL = 60 #how long to wait between replies, in seconds
+POSTINTERVAL = 3 #how long to wait between replies, in seconds
 REPLYLIMIT = 5	 #max number of replies to send in a given submission.
 
 #Creates the table to keep track of everyone's coins
@@ -120,8 +120,8 @@ def qFinder(redditObject):
 				print(DENY_TEXT)
 				print('Pretend Reply Sent! (- coins)')
 				#sendReply(redditObject, parent, coinScore)
-				repliesSent += 1
-
+				repliesSent[redditObject._submission] += 1
+				#repliesSent +=1
 
 		elif redditObject.author != redditObject.parent().author and isObjectValid(redditObject) == True:			 #Will GIVE coins
 
@@ -154,16 +154,18 @@ def sendReply(redditObject, coinScore):
 	global lastPostTime
 	global repliesSent
 	now = int(time.time())
-	if repliesSent < REPLYLIMIT:
+	if redditObject._submission not in repliesSent: #before tracking replies sent, checks to see if the submission hasan entry
+		repliesSent[redditObject._submission] =0
+	if repliesSent[redditObject._submission] < REPLYLIMIT:
 		if now - lastPostTime > POSTINTERVAL: #requires the last post to be at least 6 seconds ago
 			c.execute('SELECT replied_to FROM wholesome_coining WHERE comment_id =(?)', (redditObject.id,))
 			coinData = c.fetchone() #coinData is a touple
 			if	coinData[0] == False: #checks to see if this one has been replied to or not.
 				#Uncommet the next line to enable replies !!GOES LIVE!!
-				redditObject.reply(REPLY_TEXT.format(redditObject.parent().author, coinScore))
+				#redditObject.reply(REPLY_TEXT.format(redditObject.parent().author, coinScore))
 				print('Pretend Reply Sent! (+ coin)')
 				lastPostTime = int(time.time())
-				repliesSent += 1
+				repliesSent[redditObject._submission] += 1
 				c.execute('''UPDATE wholesome_coining
 					SET replied_to = (?)
 					WHERE comment_id=(?)''', (True, redditObject.id, ))
@@ -223,6 +225,7 @@ print('..done getting reddit instance!')
 #for submission in subreddit.stream.submissions():
 subCount = 0
 subredRuns = 0
+repliesSent = {}
 
 while True:
 	for subreddit in SUBREDDITS_WHITELIST[:]:
@@ -233,7 +236,8 @@ while True:
 		#for submission in subreddit.stream.submissions(): #TODO: use this version for stream of new
 # ----------program, for HOT-------------------------------------------------------
 		for subIndex, submission in enumerate(subreddit.hot(limit=HOTSUBSTORUN)):
-			repliesSent = 0 #resets replies to 0. track replies per submission
+			#repliesSent = 0 #resets replies to 0. track replies per submission
+			#repliesSent[submission] =0
 			print('===starting "{}" ==='.format(submission.title))
 
 			submission.comments.replace_more(limit=5) #removes MoreComments objects
@@ -242,20 +246,20 @@ while True:
 				qFinder(redditObject)	
 				#pprint.pprint(vars(comment)) #FOR DEBUG
 				
-			print('pretend replies sent', repliesSent)
+			#print('pretend replies sent', repliesSent[submission])
 			subCount = subIndex +1	
 # ----------same, but for new-----------------------------------------------------
 		for subIndex, submission in enumerate(subreddit.new(limit=NEWSUBSTORUN)):
-			repliesSent = 0 #track replies per submission
+			#repliesSent[submission] = 0 #track replies per submission
 			print('===starting "{}" ==='.format(submission.title))
 
 			submission.comments.replace_more(limit=5) #removes MoreComments objects
 
 			for indexx, redditObject in enumerate(submission.comments.list()):
-				qFinder(redditObject)	
+				qFinder(redditObject)
 				#pprint.pprint(vars(comment)) #FOR DEBUG
 				
-			print('pretend replies sent', repliesSent)
+			#print('pretend replies sent', repliesSent[submission])
 			subCount = subIndex +1	
 # --------------------------------------------------------------------------------
 		print('Scanned the following submissions in HOT:\n')
@@ -267,25 +271,10 @@ while True:
 			print(index+1, submission.title)
 #------------------
 		print('\n!!Completed {} submissions in {} and gave out {} WholesomeCoins!!'.format(subCount, subreddit, coinsGiven))
+		pprint.pprint(repliesSent)
 		subredRuns += 1
 		print('subredRuns currently at:', subredRuns)
 
 
 c.close()
 conn.close()
-
-#RESULTS: 
-#	Bot found a new submission, but did not find a qualifying new comment on that submission 
-#	after it ran through the initial submission. Didn't find a new reply with 'test' in it
-
-#	Proposed new solution is to write the script so that it looks through the top 50 posts and
-# 	all their comments and replies. Then hands out coins. Then repeats this process every minute.
-#	Another script or process is needed to run this script every minute
-
-#TODO: Wrap everything in a While function and make it sleep 60 secs at the end:
-
-#while True:
-#	ENTIRE PROGRAM
-#	time.sleep(60)
-
-
