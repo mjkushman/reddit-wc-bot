@@ -1,0 +1,715 @@
+
+
+================================
+Runthrough summary:
+Completed at: 23:49:53 04/06/18
+Runtime: 27.26s
+subredRuns #: 1
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:50:34 04/06/18
+Runtime: 41.32s
+subredRuns #: 2
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:51:23 04/06/18
+Runtime: 48.97s
+subredRuns #: 3
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:52:15 04/06/18
+Runtime: 51.32s
+subredRuns #: 4
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:53:03 04/06/18
+Runtime: 48.05s
+subredRuns #: 5
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:53:55 04/06/18
+Runtime: 52.66s
+subredRuns #: 6
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:54:43 04/06/18
+Runtime: 47.52s
+subredRuns #: 7
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:55:26 04/06/18
+Runtime: 42.69s
+subredRuns #: 8
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:56:11 04/06/18
+Runtime: 45.32s
+subredRuns #: 9
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:56:54 04/06/18
+Runtime: 43.17s
+subredRuns #: 10
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:57:34 04/06/18
+Runtime: 39.46s
+subredRuns #: 11
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:58:14 04/06/18
+Runtime: 40.36s
+subredRuns #: 12
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:58:57 04/06/18
+Runtime: 43.59s
+subredRuns #: 13
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 23:59:36 04/06/18
+Runtime: 38.93s
+subredRuns #: 14
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:00:04 04/07/18
+Runtime: 27.33s
+subredRuns #: 15
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:00:49 04/07/18
+Runtime: 45.23s
+subredRuns #: 16
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:01:48 04/07/18
+Runtime: 59.0s
+subredRuns #: 17
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:02:39 04/07/18
+Runtime: 51.07s
+subredRuns #: 18
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:03:35 04/07/18
+Runtime: 55.71s
+subredRuns #: 19
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:04:18 04/07/18
+Runtime: 43.48s
+subredRuns #: 20
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:05:04 04/07/18
+Runtime: 46.05s
+subredRuns #: 21
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:05:52 04/07/18
+Runtime: 47.26s
+subredRuns #: 22
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:06:36 04/07/18
+Runtime: 44.5s
+subredRuns #: 23
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:07:15 04/07/18
+Runtime: 38.86s
+subredRuns #: 24
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:07:55 04/07/18
+Runtime: 40.19s
+subredRuns #: 25
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:08:33 04/07/18
+Runtime: 38.22s
+subredRuns #: 26
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:09:11 04/07/18
+Runtime: 38.02s
+subredRuns #: 27
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:09:42 04/07/18
+Runtime: 31.11s
+subredRuns #: 28
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:10:17 04/07/18
+Runtime: 34.38s
+subredRuns #: 29
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:10:59 04/07/18
+Runtime: 42.49s
+subredRuns #: 30
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:11:48 04/07/18
+Runtime: 48.27s
+subredRuns #: 31
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:12:32 04/07/18
+Runtime: 44.6s
+subredRuns #: 32
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:13:16 04/07/18
+Runtime: 43.27s
+subredRuns #: 33
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 00:13:59 04/07/18
+Runtime: 43.02s
+subredRuns #: 34
+HOT submissions run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+NEW submission run:
+['A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: Test Snappy Quote Format',
+ 'A testing ground for all bots: string recon and reply']
+Sent replies to:
+{}
+================================

@@ -10,15 +10,15 @@ conn = sqlite3.connect('wholesomeCoin.db')
 c = conn.cursor()
 
 
-SEARCHQ = '!secretkeyword' #must be lowercase
-AWARD_TEXT= '\nPositively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
-#AWARD_TEXT= '\n+1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
-HOT_SUBSTORUN = 5  #number of HOT submissions to check in each subreddit
-NEW_SUBSTORUN = 5  #number of NEW submissions to check in each subreddit
+SEARCHQ = '!wholesomecoin' #SEARCHQ must be lowercase
+#AWARD_TEXT= '\nPositively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
+AWARD_TEXT= '\n+1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
+HOT_SUBSTORUN = 10  #number of HOT submissions to check in each subreddit
+NEW_SUBSTORUN = 10  #number of NEW submissions to check in each subreddit
 #SUBREDDITS_WHITELIST = ['AskReddit','testingground4bots','todayilearned']
 SUBREDDITS_WHITELIST = ['testingground4bots']
-DENY_TEXT= '\nNegatively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
-#DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
+#DENY_TEXT= '\nNegatively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
+DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
 coinsGiven = 0 #keeps track of how many coins given out per script run
 coinUp = 1 #how many coins a user should get
 POSTINTERVAL = 60 #how long to wait between replies, in seconds
@@ -156,12 +156,13 @@ def sendReply(redditObject, coinScore, replyText): #replies to the post
 			coinData = c.fetchone() #coinData is a touple
 			if	coinData[0] == False: #checks to see if this comment has been replied to or not.
 ######## #Uncommet the next line to enable replies !!GOES LIVE!!
-#####				redditObject.reply(replyText.format(redditObject.parent().author, coinScore))
+				redditObject.reply(replyText.format(redditObject.parent().author, coinScore))
 				#print('Pretend Reply Sent!')
 				#print(replyText)
 				lastPostTime = int(time.time())
 				repliesSent[redditObject._submission] += 1
-				c.execute('''UPDATE wholesome_coining
+				c.execute('''
+					UPDATE wholesome_coining
 					SET replied_to = (?)
 					WHERE comment_id=(?)''', (True, redditObject.id, ))
 				conn.commit()
