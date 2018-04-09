@@ -1,0 +1,156 @@
+
+
+================================
+Runthrough summary:
+Completed at: 09:53:37 04/09/18
+Runtime: 24.71s
+subredRuns #: 1
+HOT submissions run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+NEW submission run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 09:54:03 04/09/18
+Runtime: 25.24s
+subredRuns #: 2
+HOT submissions run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+NEW submission run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 09:56:11 04/09/18
+Runtime: 12.57s
+subredRuns #: 1
+HOT submissions run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+NEW submission run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 09:56:30 04/09/18
+Runtime: 18.53s
+subredRuns #: 2
+HOT submissions run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+NEW submission run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+Sent replies to:
+{}
+================================
+
+================================
+Runthrough summary:
+Completed at: 09:56:47 04/09/18
+Runtime: 17.21s
+subredRuns #: 3
+HOT submissions run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+NEW submission run:
+['A testing ground for all bots: Textile',
+ 'A testing ground for all bots: Pretty!',
+ 'A testing ground for all bots: ISS Cool',
+ 'A testing ground for all bots: no one here but us chickens',
+ 'A testing ground for all bots: xyz',
+ 'A testing ground for all bots: yyy',
+ 'A testing ground for all bots: testy mctestface',
+ 'A testing ground for all bots: string recon and reply',
+ 'A testing ground for all bots: secret key word',
+ 'A testing ground for all bots: test']
+Sent replies to:
+{}
+================================
