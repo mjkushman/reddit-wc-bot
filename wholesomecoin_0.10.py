@@ -10,9 +10,11 @@ conn = sqlite3.connect('wholesomeCoin.db')
 c = conn.cursor()
 
 
-SEARCHQ = '!wholesomecoin' #SEARCHQ must be lowercase
+SEARCHcoin = '!wholesomecoin' #SEARCHcoin must be lowercase
+SEARCHscore = '!wholesomescore' #let user check their score
 #AWARD_TEXT= '\nPositively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
 AWARD_TEXT= '\n+1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
+SCORE_TEXT= 'You have **{}** WholesomeCoins. Keep going!\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
 HOT_SUBSTORUN = 10  #number of HOT submissions to check in each subreddit
 NEW_SUBSTORUN = 10  #number of NEW submissions to check in each subreddit
 #SUBREDDITS_WHITELIST = ['AskReddit','testingground4bots','todayilearned']
@@ -96,7 +98,7 @@ def qFinder(redditObject):
 	#print('STARTING qFinder')
 	global repliesSent
 	copy = redditObject.body.lower().translate(str.maketrans('','',string.punctuation[1:])) #removes punctuation EXCEPT FOR ! which is at index 0 of string.punctuation
-	if SEARCHQ in copy.split():
+	if SEARCHcoin in copy.split():
 		if redditObject.author == redditObject.parent().author: 
 			#Rule to TAKE coins if the user tried to reward themselves
 			coinScore = coinPenalty(redditObject)	
@@ -106,7 +108,13 @@ def qFinder(redditObject):
 			#also adds coining action to wholesome_coining table (coiningTracker)			
 			coinScore = coinGiver(redditObject) 
 			sendReply(redditObject, coinScore, AWARD_TEXT)
-	elif SEARCHQ not in copy.split():
+	elif SEARCHcoin not in copy.split():
+		pass
+
+	if SEARCHQ2 in copy.split()
+		#user check's their score
+		coinScore = scoreCheck(redditObject)
+		sendReply(redditObject, coinScore, SCORE_TEXT)
 		pass
 	return
 		
@@ -177,6 +185,10 @@ def sendReply(redditObject, coinScore, replyText): #replies to the post
 		#print('Didn\'t reply because already {} replies in this submission'.format(repliesSent[redditObject._submission]))
 
 
+def scoreCheck(redditObject):
+
+
+
 #=============POGRAM START=========
 
 createTable()
@@ -199,9 +211,10 @@ print('..done getting reddit instance!')
 
 subCount = 0
 subredRuns = 0
-today = '{}-{}-{}'.format(time.strftime('%m'),time.strftime('%d'),time.strftime('%y'))
+
 
 while True:
+	today = '{}-{}-{}'.format(time.strftime('%m'),time.strftime('%d'),time.strftime('%y'))
 	try:
 		pfile = open("replies.pickle", "rb")
 		repliesSent = pickle.load(pfile)
@@ -233,16 +246,14 @@ while True:
 			ranNew.append('{}: {}'.format(subreddit.title,submission.title))
 			subCount += 1
 # --------------------------------------------------------------------------------
-		print('Scanned the following submissions in HOT:\n')
-		for index, submission in enumerate(subreddit.hot(limit=HOT_SUBSTORUN)):
-			print(index+1, submission.title)
+		#print('Scanned the following submissions in HOT:\n')
+		#for index, submission in enumerate(subreddit.hot(limit=HOT_SUBSTORUN)):
+		#	print(index+1, submission.title)
 #------------------		
-		print('Scanned the following submissions in NEW:\n')
-		for index, submission in enumerate(subreddit.new(limit=NEW_SUBSTORUN)):
-			print(index+1, submission.title)
+		#print('Scanned the following submissions in NEW:\n')
+		#for index, submission in enumerate(subreddit.new(limit=NEW_SUBSTORUN)):
+		#	print(index+1, submission.title)
 #------------------
-		print(ranHot)
-		print(ranNew)
 		subredRuns += 1
 	
 	timeTaken = round((startTime - time.time())*-1,2)
