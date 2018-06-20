@@ -15,10 +15,10 @@ SEARCHscore = '!wholesomescore' #let user check their score
 #AWARD_TEXT= '\nPositively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
 AWARD_TEXT= '\n+1 WholesomeCoin for u/{}!\nCurrent wholesome coinage: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
 SCORE_TEXT= 'You have **{}** WholesomeCoins. Keep it up!\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
-HOT_SUBSTORUN = 10  #number of HOT submissions to check in each subreddit
-NEW_SUBSTORUN = 10  #number of NEW submissions to check in each subreddit
-#SUBREDDITS_WHITELIST = ['AskReddit','testingground4bots','todayilearned']
-SUBREDDITS_WHITELIST = ['testingground4bots']
+HOT_SUBSTORUN = 20  #number of HOT submissions to check in each subreddit
+NEW_SUBSTORUN = 20  #number of NEW submissions to check in each subreddit
+SUBREDDITS_WHITELIST = ['AskReddit','wholesomememes']
+#SUBREDDITS_WHITELIST = ['testingground4bots']
 #DENY_TEXT= '\nNegatively triggered for u/{}!\nScore: **{}**.\n\n*****\n\n*^Bleep ^bloop. ^How ^are ^you? ^I\'m ^a ^work ^in ^progress. ^| [^message ^me](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^placeholder](https://google.com) ^|*'
 DENY_TEXT= 'Hey don\'t do that!\nI\'m taking away half your WholesomeCoins :(\n\n*****\n\n*^Bleep ^bloop. ^I\'m ^a ^work ^in ^progress. ^How ^are ^you? ^| [^Feedback](https://reddit.com/message/compose/?to=wholesomecoinbot)^| [^Info ^(placeholder)](https://google.com) ^|*'
 coinsGiven = 0 #keeps track of how many coins given out per script run
@@ -166,10 +166,10 @@ def sendReply(redditObject, coinScore, replyText): #replies to the post
 #***********************************************************************************
 #***********************************************************************************
 #				 #Uncommet the next line to enable replies !!GOES LIVE!!
-				redditObject.reply(replyText.format(redditObject.parent().author, coinScore))
+####				redditObject.reply(replyText.format(redditObject.parent().author, coinScore))
 #***********************************************************************************
 #***********************************************************************************
-				logFile.write(replyText)
+				logFile.write(replyText.format(redditObject.parent().author, coinScore))
 				lastPostTime = int(time.time())
 				repliesSent[redditObject._submission] += 1
 				c.execute('''
